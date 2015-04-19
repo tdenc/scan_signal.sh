@@ -21,7 +21,7 @@ scan(){
 
 _scan(){
     echo === $1 ch ===
-    if $RECPT1 --b25 --strip $1 $SCAN_TIME $TMP_TS 2>&1 | grep '^C/N ='
+    if $RECPT1 --b25 --strip $1 $SCAN_TIME $TMP_TS 2>&1 | grep '\bC/N ='
     then
         which $EPGDUMP >/dev/null && \
             ($EPGDUMP $1 $TMP_TS - \
